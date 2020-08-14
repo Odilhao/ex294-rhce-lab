@@ -1,0 +1,13 @@
+virt-install \
+     --name bastion \
+     --memory=2048 \
+     --vcpus=2 \
+     --os-type linux \
+     --location /var/lib/libvirt/images/CentOS-8.1.1911-x86_64-boot.iso \
+     --disk size=10  \
+     --network bridge=virbr294 \
+     --graphics=none \
+     --os-variant=rhel8 \
+     --console pty,target_type=serial \
+     -x 'console=ttyS0,115200n8 serial' \
+     -x "ks=https://raw.githubusercontent.com/Odilhao/ex294-rhce-lab/master/kickstart/bastion.cfg" 
