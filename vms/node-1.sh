@@ -1,0 +1,14 @@
+virt-install \
+     --name node-1 \
+     --memory 3072 \
+     --vcpus 2 \
+     --os-type linux \
+     --location /var/lib/libvirt/images/CentOS-8.1.1911-x86_64-boot.iso \
+     --disk path=/var/lib/libvirt/images/node-1.qcow2,size=10,bus=virtio,format=qcow2   \
+     --network bridge=virbr294 \
+     --graphics=none \
+     --os-variant=centos8 \
+     --console pty,target_type=serial \
+     --noautoconsole \
+     -x 'console=ttyS0,115200n8 serial' \
+     -x "ks=https://raw.githubusercontent.com/Odilhao/ex294-rhce-lab/master/kickstart/node-1.cfg" 
