@@ -1,4 +1,5 @@
 Cloning the repo
+
 ```
 cd ~
 git clone https://github.com/Odilhao/ex294-rhce-lab.git
@@ -16,6 +17,7 @@ sudo systemctl enable libvirtd --now
 
 2. Creating the Network for this LAB
 
+```
 sudo virsh net-destroy ex294
 sudo virsh net-undefine ex294
 sudo virsh net-define --file libvirt/net-ex294.xml
@@ -29,7 +31,7 @@ sudo virsh net-autostart ex294
 sudo wget http://mirror.rackspace.com/CentOS/8.1.1911/isos/x86_64/CentOS-8.1.1911-x86_64-boot.iso -O /var/lib/libvirt/images/CentOS-8.1.1911-x86_64-boot.iso
 ``` 
 
-4. Creating the Servers
+4. Creating the Servers:
 
 Bastion
 
@@ -56,6 +58,7 @@ The servers are all created with the root password **ansible**.
 `ssh root@192.168.244.10`
 
 From the bastion you can check the DNS for all nodes:
+
 
 ```
 host node-1.ex294.lab.local
